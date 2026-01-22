@@ -1,5 +1,5 @@
 /**
- * The WeeklyData class stores and analyzes a week’s worth of numeric data.
+ * The WeeklyData class stores and analyzes a week's worth of numeric data.
  * This could represent steps taken, hours of sleep, money spent, screen time,
  * or any other measurable daily value.
  */
@@ -8,10 +8,9 @@ public class WeeklyData {
     // -------------------------------------------------------------
     // Instance Variables
     // -------------------------------------------------------------
-    // TODO: Declare a private array to store the week’s data
-    //       Choose an appropriate type (double[] or int[])
-    //       Create other instance variables as necessary
-    
+    private double[] data;
+    private String userName;
+    private String skillLevel;
 
 
     // -------------------------------------------------------------
@@ -24,10 +23,6 @@ public class WeeklyData {
      * @param input an array representing 7 days of data
      */
     public WeeklyData(double[] input) {
-        // TODO: (Optional) Check if input is null and handle appropriately
-        // TODO: Create a new array with the same length as input
-        // TODO: Copy each value from input into the internal data array
-        // NOTE: Do NOT do this.data = input; (that would create aliasing)
         if (input == null) {
             this.data = new double[0];
         } else {
@@ -37,7 +32,7 @@ public class WeeklyData {
             }
         }
     }
-    
+
     /**
      * Additional constructor that accepts user info
      */
@@ -57,9 +52,6 @@ public class WeeklyData {
      * @return the sum of all values in the data array
      */
     public double getTotal() {
-        // TODO: Create a variable to store the running total
-        // TODO: Use a loop to add each value in the array to the total
-        // TODO: Return the total
         double total = 0.0;
         for (int i = 0; i < data.length; i++) {
             total += data[i];
@@ -78,9 +70,6 @@ public class WeeklyData {
      *         or 0.0 if the array is empty
      */
     public double getAverage() {
-        // TODO: If the array length is 0, return 0.0
-        // TODO: Otherwise, divide the total by the number of elements
-        // Hint: You may call getTotal()
         if (data.length == 0) {
             return 0.0;
         }
@@ -97,9 +86,6 @@ public class WeeklyData {
      * @return the maximum value
      */
     public double getMax() {
-        // TODO: Assume the first value is the current maximum
-        // TODO: Loop through the rest of the array and update max as needed
-        // TODO: Return the maximum value found
         if (data.length == 0) {
             return 0.0;
         }
@@ -116,7 +102,13 @@ public class WeeklyData {
     // -------------------------------------------------------------
     // getMin
     // -------------------------------------------------------------
-    /**if (data.length == 0) {
+    /**
+     * Finds and returns the lowest value in the data array.
+     *
+     * @return the minimum value
+     */
+    public double getMin() {
+        if (data.length == 0) {
             return 0.0;
         }
         double min = data[0];
@@ -126,15 +118,6 @@ public class WeeklyData {
             }
         }
         return min;
-     * Finds and returns the lowest value in the data array.
-     *
-     * @return the minimum value
-     */
-    public double getMin() {
-        // TODO: Assume the first value is the current minimum
-        // TODO: Loop through the rest of the array and update min as needed
-        // TODO: Return the minimum value found
-        return 0.0; // replace with the minimum value
     }
 
 
@@ -142,25 +125,30 @@ public class WeeklyData {
     // toString
     // -------------------------------------------------------------
     /**
-     * Returns a formatted, multi-line String showing each day’s data.
+     * Returns a formatted, multi-line String showing each day's data.
      *
      * Example:
      * Day 1: 4500
      * Day 2: 6200
      * Day 3: 5100
+     *
+     * @return a formatted String representing the week's data
+     */
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < data.length; i++) {
             sb.append("Day ").append(i + 1).append(": ").append(data[i]).append("\n");
         }
         return sb.toString();
-     * @return a formatted String representing the week’s data
-     */
-    @Override
-    public String toString() {
-        // TODO: Create a StringBuilder
-        // TODO: Loop through the data array
-        // TODO: Append each value with a day label (Day 1, Day 2, etc.)
-        // TODO: Return the completed String
-        return ""; // replace with your formatted output
+    }
+
+    // Getter methods for user info
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
     }
 }
