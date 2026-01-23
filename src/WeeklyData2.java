@@ -3,7 +3,7 @@
  * This could represent steps taken, hours of sleep, money spent, screen time,
  * or any other measurable daily value.
  */
-public class WeeklyData {
+public class WeeklyData2 {
 
     // -------------------------------------------------------------
     // Instance Variables
@@ -23,7 +23,7 @@ public class WeeklyData {
      *
      * @param input an array representing 7 days of data
      */
-    public WeeklyData(double[] input) {
+    public WeeklyData2(double[] input) {
         // TODO: (Optional) Check if input is null and handle appropriately
         // TODO: Create a new array with the same length as input
         // TODO: Copy each value from input into the internal data array
